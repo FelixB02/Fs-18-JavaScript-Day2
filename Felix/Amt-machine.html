@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="number" id="input">
+    <input type="button" onclick="calc()" value="money">
+
+    <script>
+        const inp = document.getElementById("input");
+        const banknotes = [4, 4, 4, 4];
+
+        function calc() {
+            let amount = Number(inp.value);
+
+            amount_of_money = banknotes[0] * 100 + banknotes[1] * 50 + banknotes[2] * 20 + banknotes[3] * 10;
+
+            if (amount > amount_of_money || amount < 0) {
+                console.log("We dont have so much money");
+                return;
+            }
+
+            let hundreds = Math.floor(amount / 100);
+            if (hundreds != 0) {
+                if (hundreds > banknotes[0]) {
+                    hundreds = banknotes[0];
+                    amount -= 100 * hundreds;
+                    banknotes[0] = 0;
+                } else {
+                    amount %= 100;
+                    banknotes[0] -= hundreds;
+                }
+            }
+
+            let fiftys = Math.floor(amount / 50);
+            if (fiftys != 0) {
+                if (fiftys > banknotes[1]) {
+                    fiftys = banknotes[1];
+                    amount -= 50 * fiftys;
+                    banknotes[1] = 0;
+                } else {
+                    amount %= 50;
+                    banknotes[1] -= fiftys;
+                }
+            }
+
+            let twentys = Math.floor(amount / 20);
+            if (twentys != 0) {
+                if (twentys > banknotes[2]) {
+                    twentys = banknotes[2];
+                    amount -= 20 * twentys;
+                    banknotes[2] = 0;
+                } else {
+                    amount %= 20;
+                    banknotes[2] -= twentys;
+                }
+            }
+
+            let tens = Math.floor(amount / 10);
+            if (tens != 0) {
+                if (tens > banknotes[3]) {
+                    tens = banknotes[3];
+                    amount -= 10 * tens;
+                    banknotes[3] = 0;
+                } else {
+                    amount %= 10;
+                    banknotes[3] -= tens;
+                }
+            }
+            if (amount > 0) {
+                console.log("Sry we dont have enough money")
+                console.log("------------------------")
+            }
+
+
+            // console.log(banknotes[0], hundreds, amount);
+            // console.log(banknotes[1], fiftys, amount)
+            // console.log(banknotes[2], twentys, amount)
+            // console.log(banknotes[3], tens, amount)
+            // console.log("------------------------");
+            console.log(`100s: ${hundreds} 50s: ${fiftys} 20s: ${twentys} 10s: ${tens}`)
+            console.log("------------------------");
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        // let amount = Number(inp);
+        // banknotes = [4, 4, 4, 4];
+        // amount_of_money = banknotes[0] * 100 + banknotes[1] * 50 + banknotes[2] * 20 + banknotes[3] * 10;
+
+        // // if (amount > amount_of_money || amount < 0) {
+        // //     console.log("We dont have so much money")
+        // // }
+        // let hundreds = Math.floor(amount / 100);
+        // if (hundreds != 0) {
+        //     if (hundreds > banknotes[0]) {
+        //         hundreds = banknotes[0];
+        //         amount -= 100 * hundreds;
+        //         banknotes[0] = 0;
+        //     } else {
+        //         amount %= 100;
+        //         banknotes[0] -= hundreds;
+        //     }
+        // }
+
+        // let fiftys = Math.floor(amount / 50);
+        // if (fiftys != 0) {
+        //     if (fiftys > banknotes[1]) {
+        //         fiftys = banknotes[1];
+        //         amount -= 50 * fiftys;
+        //         banknotes[1] = 0;
+        //     } else {
+        //         amount %= 50;
+        //         banknotes[1] -= fiftys;
+        //     }
+        // }
+
+        // let twentys = Math.floor(amount / 20);
+        // if (twentys != 0) {
+        //     if (twentys > banknotes[2]) {
+        //         twentys = banknotes[2];
+        //         amount -= 20 * twentys;
+        //         banknotes[2] = 0;
+        //     } else {
+        //         amount %= 20;
+        //         banknotes[2] -= twentys;
+        //     }
+        // }
+
+        // let tens = Math.floor(amount / 10);
+        // if (tens != 0) {
+        //     if (tens > banknotes[3]) {
+        //         tens = banknotes[3];
+        //         amount -= 10 * tens;
+        //         banknotes[3] = 0;
+        //     } else {
+        //         amount %= 10;
+        //         banknotes[3] -= tens;
+        //     }
+        // }
+        // if (amount > 0) {
+        //     console.log("Sry we dont have enough money")
+        // }
+
+
+        // console.log(banknotes[0], hundreds, amount);
+        // console.log(banknotes[1], fiftys, amount)
+        // console.log(banknotes[2], twentys, amount)
+        // console.log(banknotes[3], tens, amount)
+
+
+        // if (amount > amount_of_money || amount < 0) {
+        //     console.log("We dont have so much money")
+        // } else {
+        //     let hundreds = Math.floor(amount / 100);
+        //     if (hundreds <= banknotes[0]) {
+        //         let fiftys = Math.floor(amount % 100 / 50);
+        //         if (fiftys <= banknotes[1]) {
+        //             let twentys = Math.floor(amount % 100 % 50 / 20);
+        //             if (twentys <= banknotes[2]) {
+        //                 let tens = Math.floor(amount % 100 % 50 % 20 / 10);
+        //                 if (tens <= banknotes[3]) {
+        //                     console.log(`100s ${hundreds} 50s ${fiftys} 20s ${twentys} 10s ${tens}`)
+        //                 } else {
+
+        //                 }
+        //             } else {
+
+        //             }
+        //         } else {
+
+        //         }
+        //     } else {
+        //         let fiftys = Math.floor(amount % 100 / 50);
+        //         if (fiftys <= banknotes[1]) {
+        //             let twentys = Math.floor(amount % 100 % 50 / 20);
+        //             if (twentys <= banknotes[2]) {
+        //                 let tens = Math.floor(amount % 100 % 50 % 20 / 10);
+        //                 if (tens <= banknotes[3]) {
+        //                     console.log(`100s ${hundreds} 50s ${fiftys} 20s ${twentys} 10s ${tens}`)
+        //                 } else {
+        //                     console.log("Sry we cant procedure your withdraw")
+        //                 }
+        //             } else {
+
+        //             }
+        //         } else {
+
+        //         }
+        //     }
+        // }
+    </script>
+</body>
+
+</html>
