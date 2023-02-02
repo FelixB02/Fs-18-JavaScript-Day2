@@ -9,7 +9,9 @@ function timeConvert(minutes) {
 
 
 
-
-console.log(`${timeConvert(200)[2]} minutes = ${timeConvert(200)[0]} hour(s) and ${timeConvert(200)[1]} minutes(s).`)
-console.log(`${timeConvert(500)[2]} minutes = ${timeConvert(500)[0]} hour(s) and ${timeConvert(500)[1]} minutes(s).`)
-console.log(`${timeConvert(10000)[2]} minutes = ${timeConvert(10000)[0]} hour(s) and ${timeConvert(10000)[1]} minutes(s).`)
+let res = timeConvert(200);
+let res1 = timeConvert(500);
+let res2 = timeConvert(10000);
+console.log(`${res[2]} minutes = ${res[0]} hour(s) and ${res[1]} minutes(s).`)
+console.log(`${res1[2]} minutes = ${res1[0]} hour(s) and ${res1[1]} minutes(s).`)
+console.log(`${res2[2]} minutes = ${res2[0]} hour(s) and ${res2[1]} minutes(s).`)

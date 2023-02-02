@@ -1,7 +1,7 @@
 // 1.)
-let temperature = Math.floor(Math.random() * 25 - 5);
+let temperature = Math.floor(Math.random() * 30 - 5);
 
-// console.log(temperature)
+console.log(temperature)
 
 if (temperature <= 10) {
     console.log("The weather is cold");
@@ -33,12 +33,18 @@ var currentTime = new Date()
 
 function ageCalculator(birth_year) {
     current_Time = currentTime.getFullYear()
-    year1 = current_Time - birth_year;
-    year2 = year1 - 1;
-    console.log("You are either " + year1 + " or " + year2 + " years old.");
+    let year1 = current_Time - birth_year;
+    let year2 = year1 - 1;
+    let yearsresult = [year1, year2];
+    return (yearsresult);
 }
 
-ageCalculator(2002);
+
+yearsres1 = ageCalculator(2002)
+yearsres2 = ageCalculator(1967)
+
+console.log(`You are either ${yearsres1[0]} or ${yearsres1[1]} years old`);
+console.log(`You are either ${yearsres2[0]} or ${yearsres2[1]} years old`);
 
 // 6.)
 
@@ -53,11 +59,15 @@ degree_radian(90)
 // 7.)
 
 function box_calculations(width, height, depth) {
-    area = width * height;
-    volume = area * depth;
-    return (area, volume);
+    let area = width * height;
+    let volume = area * depth;
+    let areasresult = [area, volume];
+    return (areasresult)
 }
 
-box_calculations(7, 2, 5)
 
-console.log(`The area of the box is ${area} and the volume of the box is ${volume}.`);
+
+areasres1 = box_calculations(7, 2, 5)
+areasres2 = box_calculations(10, 15, 7)
+console.log(`The area of the box is ${areasres1[0]} and the volume of the box is ${areasres1[1]}.`);
+console.log(`The area of the box is ${areasres2[0]} and the volume of the box is ${areasres2[1]}.`);
