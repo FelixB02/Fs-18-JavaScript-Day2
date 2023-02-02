@@ -13,11 +13,11 @@ if (temperature <= 10) {
 let favoriteFoods = ["pizza", "hamburger", "ice cream", "chocolate", "Nachos", "Lasagne"];
 
 function randomFoods() {
-    randomFood = favoriteFoods[Math.floor(Math.random() * favoriteFoods.length)];
+    let randomFood = favoriteFoods[Math.floor(Math.random() * favoriteFoods.length)];
+    return randomFood
 }
 
-randomFoods()
-console.log(randomFood)
+console.log(randomFoods())
 
 // 3.)
 
