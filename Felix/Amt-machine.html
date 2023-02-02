@@ -6,11 +6,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="Amt-machine.css">
 </head>
 
 <body>
-    <input type="number" id="input">
-    <input type="button" onclick="calc()" value="money">
+    <div id="container">
+        <h2> The ATM machine</h2>
+        <input type="number" id="input">
+        <input type="button" onclick="calc()" value="withdraw">
+        <p id="info"></p>
+    </div>
 
     <script>
         const inp = document.getElementById("input");
@@ -22,7 +27,9 @@
             amount_of_money = banknotes[0] * 100 + banknotes[1] * 50 + banknotes[2] * 20 + banknotes[3] * 10;
 
             if (amount > amount_of_money || amount < 0) {
-                console.log("We dont have so much money");
+                let text = document.getElementById("info")
+                text.innerHTML += (" <br> <b> We dont have so much money </b> <br> ------------------------------------------------------------------------")
+                    // console.log("We dont have so much money");
                 return;
             }
 
@@ -74,8 +81,10 @@
                 }
             }
             if (amount > 0) {
-                console.log("Sry we dont have enough money")
-                console.log("------------------------")
+                let text = document.getElementById("info")
+                text.innerHTML += (" <br> <b>Sry we can only withdraw the bank notes 100, 50, 20, 10! </b> <br> ------------------------------------------------------------------------")
+                    // console.log("Sry we can only replicate your withdraw as close as possible!")
+                    // console.log("------------------------")
             }
 
 
@@ -84,9 +93,11 @@
             // console.log(banknotes[2], twentys, amount)
             // console.log(banknotes[3], tens, amount)
             // console.log("------------------------");
-            console.log(`100s: ${hundreds} 50s: ${fiftys} 20s: ${twentys} 10s: ${tens}`)
-            console.log(`Amount of money left: ${banknotes[0] * 100 + banknotes[1] * 50 + banknotes[2] * 20 + banknotes[3] * 10}`)
-            console.log("------------------------");
+            let text = document.getElementById("info")
+            text.innerHTML += (` <br> <b>Your output is: </b> 100s: ${hundreds} 50s: ${fiftys} 20s: ${twentys} 10s: ${tens} <br> <b> Amount of money left: </b> ${banknotes[0] * 100 + banknotes[1] * 50 + banknotes[2] * 20 + banknotes[3] * 10} <br> ------------------------------------------------------------------------`);
+            // console.log(`100s: ${hundreds} 50s: ${fiftys} 20s: ${twentys} 10s: ${tens}`)
+            // console.log(`Amount of money left: ${banknotes[0] * 100 + banknotes[1] * 50 + banknotes[2] * 20 + banknotes[3] * 10}`)
+            // console.log("------------------------");
         }
 
 
